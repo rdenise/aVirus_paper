@@ -1,0 +1,7 @@
+name: sam2lca
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - sam2lca

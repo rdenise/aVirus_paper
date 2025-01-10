@@ -1,0 +1,22 @@
+# Path to the metagenomes files
+metagenomes:
+    # path to contigs reads folder
+    reads_folder: /mnt/archgen/microbiome_coprolite/aVirus/03-data/fastqs/fastq_merged
+    # identifier of the sample name in the reads files (e.g. _R if the file is named sample1_R1.fastq.gz)
+    reads_identifier: "."
+
+
+# path to the result folder
+output_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa"
+
+# reference genome path
+reference_genome: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses/viruses_decoy.fasta"
+
+# Only viruses reference genome path for cmseq 
+refs_virus: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses/viruses.fasta"
+
+# sam2lca
+sam2lca_db: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses/sam2lca"
+seqid2taxid: "viruses_plus_decoy_genome"
+taxonomy: "viruses_plus_decoy_genome"
+

@@ -1,0 +1,34 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+
+description: snakemake configuration file
+
+type: object
+
+properties:
+  output_folder:
+    type: string
+  metagenomes:
+    type: object
+    properties:
+      reads_folder:
+        type: string
+      reads_identifier:
+        type: string
+    required:
+      - reads_folder
+      - reads_identifier
+  reference_genome:
+    type: string
+  sam2lca_db:
+    type: string
+  seqid2taxid:
+    type: string
+  taxonomy:
+    type: string
+required:
+  - metagenomes
+  - output_folder
+  - reference_genome
+  - sam2lca_db
+  - seqid2taxid
+  - taxonomy

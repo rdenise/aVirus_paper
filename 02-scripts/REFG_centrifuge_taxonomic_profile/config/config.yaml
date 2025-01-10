@@ -1,0 +1,14 @@
+# Path to the metagenomes files
+metagenomes:
+    # path to contigs reads folder
+    reads_folder: /mnt/archgen/microbiome_coprolite/aVirus/03-data/fastqs/fastq_merged
+    # identifier of the sample name in the reads files (e.g. _R if the file is named sample1_R1.fastq.gz)
+    reads_identifier: "."
+
+# path to the result folder
+output_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data"
+
+# reference genome path
+centrifuge_db: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/refdbs/ICTV/centrifuge_ICTV/centrifuge_ICTV"
+
+taxonomy_db: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/refdbs/taxonomy"

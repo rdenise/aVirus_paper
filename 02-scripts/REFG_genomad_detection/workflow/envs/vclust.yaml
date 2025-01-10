@@ -1,0 +1,6 @@
+name: vclust
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - vclust

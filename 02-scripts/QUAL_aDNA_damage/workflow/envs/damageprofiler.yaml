@@ -1,0 +1,6 @@
+name: damageprofiler
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - damageprofiler

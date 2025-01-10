@@ -1,0 +1,7 @@
+name: cmseq
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - cmseq

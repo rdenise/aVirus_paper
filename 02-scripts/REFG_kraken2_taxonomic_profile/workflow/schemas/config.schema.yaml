@@ -1,0 +1,25 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+
+description: snakemake configuration file
+
+type: object
+
+properties:
+  output_folder:
+    type: string
+  metagenomes:
+    type: object
+    properties:
+      reads_folder:
+        type: string
+      reads_identifier:
+        type: string
+    required:
+      - reads_folder
+      - reads_identifier
+  kraken_db:
+    type: string
+required:
+  - metagenomes
+  - output_folder
+  - kraken_db

@@ -1,0 +1,6 @@
+name: bioconvert
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - bioconvert

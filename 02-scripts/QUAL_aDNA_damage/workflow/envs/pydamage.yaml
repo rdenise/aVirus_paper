@@ -1,0 +1,6 @@
+name: pydamage
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - pydamage
