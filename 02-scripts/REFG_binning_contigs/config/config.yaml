@@ -1,0 +1,18 @@
+metagenomes:
+    # path to contigs reads folder
+    reads_folder: /mnt/archgen/microbiome_coprolite/palaeofaeces_ecoevol/03-data/unaligned
+    # identifier of the sample name in the reads files (e.g. _R if the file is named sample1_R1.fastq.gz)
+    reads_identifier: "_"
+    # path to contigs folder if you already done the assembly
+    assembled_contigs: "/mnt/archgen/microbiome_coprolite/palaeofaeces_ecoevol/04-analysis/metagenome_assembly/alignment"
+    genomad_contigs: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa/genomad"
+    # Exention of the contig file (e.g. fasta)
+    contigs_ext: ".fasta.gz"
+    # contigs_ext: "-megahit.fasta.gz"
+
+# path to the result folder
+output_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa"
+
+
+# reference genome path
+mmseqs_db: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/refdbs/metabuli_db/ICTV_decoy_mmseqs2/ICTV_decoy_mmseqs2"

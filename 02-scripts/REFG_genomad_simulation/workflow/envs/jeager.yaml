@@ -1,0 +1,10 @@
+name: jeager
+channels:
+  - bioconda
+  - conda-forge
+  - nvidia
+dependencies:
+  - cuda-nvcc 
+  - "python>=3.9,<3.12"
+  - pip
+  - jaeger-bio

@@ -1,8 +1,6 @@
-name: checkv
+name: samtools
 channels:
   - bioconda
   - conda-forge
-  - defaults
 dependencies:
-  - checkv==1.0.3
-
+  - samtools

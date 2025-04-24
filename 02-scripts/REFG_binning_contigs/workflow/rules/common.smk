@@ -9,7 +9,7 @@
 import os, sys
 import glob
 from snakemake.utils import validate
-from Bio import SeqIO
+from collections import defaultdict
 
 ##########################################################################
 ##########################################################################
@@ -26,41 +26,67 @@ def get_final_output(outdir):
     """
     final_output = []
 
-    # bam
+    final_output += expand(
+        os.path.join(
+            outdir,
+            "binning",
+            "{method}",
+            "{software}",
+            "strobealign",
+            "semibin",
+            "{sample}-{software}",
+            "{sample}-{software}-{sample2}.abundance.tsv",
+        ),
+        sample2=SAMPLES,
+        sample=SAMPLES,
+        software=SOFTWARES,
+        method=METHODS,
+    )   
+
 
     final_output += expand(
         os.path.join(
             OUTPUT_FOLDER,
-            "checkv_genomad",
-            "{sample}-{software}",
-            "quality_summary.tsv"
+            "binning",
+            "{method}",
+            "{software}",
+            "mmseqs",
+            "{site}.mmseqs2.tsv",
         ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
+        software=SOFTWARES,
+        method=METHODS,
+        site=['ASM', 'BSM', 'HSM', 'ZSM'],
+    )
+    
+
+    final_output += expand(
+        os.path.join(
+            outdir,
+            "binning",
+            "{method}",
+            "{software}",
+            "vamb",
+            "{site}-{software}",
+            "vae_clusters_metadata.tsv"
+        ),
+        software=SOFTWARES,
+        method=METHODS,
+        site=['ASM', 'BSM', 'HSM', 'ZSM'],
     )
 
     final_output += expand(
         os.path.join(
-            OUTPUT_FOLDER,
-            "genomad_default",
-            "pydamage",
-            "{sample}-{software}",
-            "pydamage_results.csv",
+            outdir,
+            "binning",
+            "{method}",
+            "{software}",
+            "taxvamb",
+            "{site}-{software}",
+            "vaevae_clusters_metadata.tsv"
         ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
-    )
-
-    final_output += expand(
-        os.path.join(
-            OUTPUT_FOLDER,
-            "genomad",
-            "{sample}-{software}",
-            "vclust",
-            "{sample}.contigs.{software}.ani.tsv",
-        ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
+        software=SOFTWARES,
+        method=METHODS,
+        site=['ASM', 'BSM', 'HSM', 'ZSM'],
     )
 
     return final_output
@@ -106,25 +132,26 @@ validate(config, schema="../schemas/config.schema.yaml")
 
 # Result folder
 OUTPUT_FOLDER = config["output_folder"]
-# Adding to config for report
-config["__output_folder__"] = os.path.abspath(OUTPUT_FOLDER)
 
-REFS_FILE = config["reference_genome"]
-
-METADATA = config["metadata"]
-
-CONTIGS_FOLDER = config["metagenomes"]["assemble_contigs"]
-
-(SAMPLE_NAMES,) = glob_wildcards(
-    os.path.join(CONTIGS_FOLDER, "megahit", "{sample_files}" + "-megahit.fasta.gz")
-)
-
-# SAMPLE_NAMES = [i for i in SAMPLE_NAMES if i.startswith(('ZSM103'))]
-SAMPLE_NAMES = [i for i in SAMPLE_NAMES if i.startswith(('ASM', 'BSM', 'HSM', 'ZSM'))]
-
-GENOMAD_DB=config["genomad_db"]
-
-CHECKV_DB=config["checkv_db"]
-
-# # Get fastq folder
+# path to contigs sheet (TSV format, columns: contig_name, path_contig)
 FASTQ_FOLDER = config["metagenomes"]["reads_folder"]
+
+sample2file = defaultdict(list)
+
+separator = config["metagenomes"]["reads_identifier"]
+
+for fastqfile in glob.glob(os.path.join(FASTQ_FOLDER, "*_[120]*")):
+    sample = os.path.basename(fastqfile).split(separator)[0]
+    sample2file[sample].append(fastqfile)
+
+sample2file = {key: sorted(value) for key, value in sample2file.items()}
+
+SAMPLES = list(sample2file.keys())
+
+SAMPLES = [i for i in SAMPLES if i.startswith(('ASM', 'BSM', 'HSM', 'ZSM'))]
+
+MMSEQS_DB = config["mmseqs_db"]
+
+METHODS = ["genomad", "assembled"]
+
+SOFTWARES = ["megahit", "metaspades"]

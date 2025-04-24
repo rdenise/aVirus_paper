@@ -9,7 +9,7 @@
 import os, sys
 import glob
 from snakemake.utils import validate
-from Bio import SeqIO
+from collections import defaultdict
 
 ##########################################################################
 ##########################################################################
@@ -26,41 +26,16 @@ def get_final_output(outdir):
     """
     final_output = []
 
-    # bam
-
     final_output += expand(
         os.path.join(
-            OUTPUT_FOLDER,
-            "checkv_genomad",
-            "{sample}-{software}",
-            "quality_summary.tsv"
+            outdir,
+            "plot_contigs_over_reference",
+            "{sample}",
+            "{software}",
+            "{sample}.{software}.done",
         ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
-    )
-
-    final_output += expand(
-        os.path.join(
-            OUTPUT_FOLDER,
-            "genomad_default",
-            "pydamage",
-            "{sample}-{software}",
-            "pydamage_results.csv",
-        ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
-    )
-
-    final_output += expand(
-        os.path.join(
-            OUTPUT_FOLDER,
-            "genomad",
-            "{sample}-{software}",
-            "vclust",
-            "{sample}.contigs.{software}.ani.tsv",
-        ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
+        sample=SAMPLES,
+        software=["megahit", "metaspades"],
     )
 
     return final_output
@@ -96,6 +71,7 @@ def create_folder(mypath):
 # Validation of the config.yaml file
 validate(config, schema="../schemas/config.schema.yaml")
 
+
 ##########################################################################
 ##########################################################################
 ##
@@ -106,25 +82,8 @@ validate(config, schema="../schemas/config.schema.yaml")
 
 # Result folder
 OUTPUT_FOLDER = config["output_folder"]
-# Adding to config for report
-config["__output_folder__"] = os.path.abspath(OUTPUT_FOLDER)
 
-REFS_FILE = config["reference_genome"]
-
-METADATA = config["metadata"]
-
-CONTIGS_FOLDER = config["metagenomes"]["assemble_contigs"]
-
-(SAMPLE_NAMES,) = glob_wildcards(
-    os.path.join(CONTIGS_FOLDER, "megahit", "{sample_files}" + "-megahit.fasta.gz")
+# Samples
+(SAMPLES, SAMPLES2, ) = glob_wildcards(
+    os.path.join(OUTPUT_FOLDER, "genomad", "{sample}-megahit", "{sample2}-megahit_summary.log")
 )
-
-# SAMPLE_NAMES = [i for i in SAMPLE_NAMES if i.startswith(('ZSM103'))]
-SAMPLE_NAMES = [i for i in SAMPLE_NAMES if i.startswith(('ASM', 'BSM', 'HSM', 'ZSM'))]
-
-GENOMAD_DB=config["genomad_db"]
-
-CHECKV_DB=config["checkv_db"]
-
-# # Get fastq folder
-FASTQ_FOLDER = config["metagenomes"]["reads_folder"]

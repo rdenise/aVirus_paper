@@ -1,0 +1,11 @@
+name: semibin2
+channels:
+  - bioconda
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - semibin
+  - strobealign
+  - pytorch
+  - pytorch-cuda=11.8

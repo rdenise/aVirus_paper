@@ -1,8 +1,10 @@
-name: checkv
+name: vamb
 channels:
   - bioconda
   - conda-forge
   - defaults
 dependencies:
-  - checkv==1.0.3
-
+  - python=3.10
+  - pip
+  - pip:
+    - vamb==5.0.1

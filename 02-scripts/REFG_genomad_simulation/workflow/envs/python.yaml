@@ -1,0 +1,12 @@
+name: python
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.12
+  - biopython
+  - polars
+  - pysam
+  - multiprocess
+  - pip:
+    - sequence_align

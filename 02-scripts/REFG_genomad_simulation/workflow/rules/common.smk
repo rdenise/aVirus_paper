@@ -31,36 +31,25 @@ def get_final_output(outdir):
     final_output += expand(
         os.path.join(
             OUTPUT_FOLDER,
-            "checkv_genomad",
-            "{sample}-{software}",
+            "simulation_genomad",
+            "checkv_{software}",
+            "{genome}",
             "quality_summary.tsv"
         ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
+        genome=SAMPLE_NAMES,
+        software=['genomad', 'genomad_default']
     )
 
     final_output += expand(
         os.path.join(
             OUTPUT_FOLDER,
-            "genomad_default",
-            "pydamage",
-            "{sample}-{software}",
-            "pydamage_results.csv",
+            "simulation_genomad",
+            "jeager",
+            "split_contigs",
+            "{genome}",
+            "{genome}_default_phages_jaeger.fasta",
         ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
-    )
-
-    final_output += expand(
-        os.path.join(
-            OUTPUT_FOLDER,
-            "genomad",
-            "{sample}-{software}",
-            "vclust",
-            "{sample}.contigs.{software}.ani.tsv",
-        ),
-        sample=SAMPLE_NAMES,
-        software=["megahit", "metaspades"]
+        genome=SAMPLE_NAMES,
     )
 
     return final_output
@@ -109,6 +98,7 @@ OUTPUT_FOLDER = config["output_folder"]
 # Adding to config for report
 config["__output_folder__"] = os.path.abspath(OUTPUT_FOLDER)
 
+## Multiple reference genomes
 REFS_FILE = config["reference_genome"]
 
 METADATA = config["metadata"]
@@ -116,15 +106,13 @@ METADATA = config["metadata"]
 CONTIGS_FOLDER = config["metagenomes"]["assemble_contigs"]
 
 (SAMPLE_NAMES,) = glob_wildcards(
-    os.path.join(CONTIGS_FOLDER, "megahit", "{sample_files}" + "-megahit.fasta.gz")
+    os.path.join(CONTIGS_FOLDER, "{sample_files}" + ".fna.gz")
 )
-
-# SAMPLE_NAMES = [i for i in SAMPLE_NAMES if i.startswith(('ZSM103'))]
-SAMPLE_NAMES = [i for i in SAMPLE_NAMES if i.startswith(('ASM', 'BSM', 'HSM', 'ZSM'))]
 
 GENOMAD_DB=config["genomad_db"]
 
 CHECKV_DB=config["checkv_db"]
 
-# # Get fastq folder
-FASTQ_FOLDER = config["metagenomes"]["reads_folder"]
+
+
+

@@ -1,0 +1,103 @@
+################################################################################
+# Project: Ancient virus recovery
+# Part: Taxonomic annotation reads simulation
+# Step: Adding the information about annotation vs reality 
+#
+# Dependent on: script that create the .taxonomy.gz file
+#
+# Remi Denise, 24/06/2024
+################################################################################
+
+##########################################################################
+##########################################################################
+##
+##                     For Cluster execution
+##
+##########################################################################
+##########################################################################
+
+if not os.path.isdir("snakemake_tmp"):
+    os.makedirs("snakemake_tmp")
+
+os.environ["OPENBLAS_NUM_THREADS"] = '1'
+os.environ["OMP_NUM_THREADS"] = '1'
+
+##########################################################################
+##########################################################################
+##
+##                            Singularity
+##
+##########################################################################
+##########################################################################
+# this container defines the underlying OS for each job when using the workflow
+# with --use-conda --use-singularity
+
+
+container: "docker://continuumio/miniconda3"
+
+
+from snakemake.utils import min_version
+
+# set minimum snakemake version
+min_version("7.24.2")
+
+##########################################################################
+##########################################################################
+##
+##                                Rules
+##
+##########################################################################
+##########################################################################
+
+
+# load config
+configfile: "config/config.yaml"
+
+
+# Path to report rst file
+report: "report/workflow.rst"
+
+
+# Set local rule that could be launch without submiting to cluster because ultra quick
+localrules:
+    all,
+    clean,
+
+
+##########################################################################
+# Load rules
+##########################################################################
+
+
+include: "rules/common.smk"
+include: "rules/mapping.smk"
+
+
+
+##########################################################################
+##########################################################################
+
+
+rule all:
+    input:
+        get_final_output(
+            outdir=OUTPUT_FOLDER,
+        ),
+
+
+##########################################################################
+##########################################################################
+
+
+rule clean:
+    input:
+        # os.path.join(OUTPUT_FOLDER, "logs"),
+        get_final_output(
+            outdir=OUTPUT_FOLDER,
+        ),
+    shell:
+        """rm -rf {input}"""
+
+
+##########################################################################
+##########################################################################

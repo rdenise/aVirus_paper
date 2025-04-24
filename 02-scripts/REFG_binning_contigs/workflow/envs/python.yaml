@@ -1,8 +1,8 @@
-name: checkv
+name: python
 channels:
   - bioconda
   - conda-forge
-  - defaults
 dependencies:
-  - checkv==1.0.3
-
+  - python
+  - polars
+  - biopython

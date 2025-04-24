@@ -1,8 +1,7 @@
-name: checkv
+name: bwa
 channels:
   - bioconda
   - conda-forge
-  - defaults
 dependencies:
-  - checkv==1.0.3
-
+  - bwa
+  - samtools

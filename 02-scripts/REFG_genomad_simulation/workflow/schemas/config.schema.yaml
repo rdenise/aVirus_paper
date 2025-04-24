@@ -1,0 +1,25 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+
+description: snakemake configuration file
+
+type: object
+
+properties:
+  output_folder:
+    type: string
+  metagenomes:
+    type: object
+    properties:
+      assemble_contigs:
+        type: string
+      contigs_ext:
+        type: string
+    required:
+      - contigs_ext
+      - assemble_contigs
+  reference_genome:
+    type: string
+required:
+  - metagenomes
+  - output_folder
+  - reference_genome
