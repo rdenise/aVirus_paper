@@ -40,16 +40,4 @@ Each analysis workflow in `02-scripts/` follows a standardized Snakemake structu
   - `scripts/`: Custom analysis scripts
   - `schemas/`: JSON schemas for configuration validation
 
-## Requirements
 
-- Snakemake
-- Conda/Mamba for environment management
-- Various bioinformatics tools (installed via conda environments)
-- Python packages: polars, biopython, pysam, etc.
-
-## Getting Started
-
-1. Clone the repository
-2. Set up the conda environments using the yaml files in each workflow's `envs/` directory
-3. Configure the analysis by modifying the yaml files in each workflow's `config/` directory
-4. Execute workflows using Snakemake
