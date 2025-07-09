@@ -7,6 +7,7 @@ This directory contains reference data and databases used in the analysis pipeli
 - `all_50_bacterial_decoy.fa.tar.gz`: Bacterial decoy sequences used in mapping workflows
 - `viruses_decoy.fasta.tar.gz`: Viral sequences found after taxonomy profile + bacterial decoy sequences
 - `viruses.fasta.tar.gz`: Viral sequences found after taxonomy profile
+- `ictv_caudoviricetes.metadata.tsv`: Metadata for Caudoviricetes viruses used in the analysis
 
 ## Database Organization
 
