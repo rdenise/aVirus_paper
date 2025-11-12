@@ -13,6 +13,15 @@ Results from real sample analysis, organized by analysis type:
     - `semibin_bins.genomad.tsv.tar.gz`: Binning results using SemiBin with geNomad detected contigs
     - `vamb_bins.genomad.tsv.tar.gz`: Binning results using VAMB with geNomad detected contigs
     - `taxvamb_bins.genomad.tsv.tar.gz`: Binning results using MMseqs2 with geNomad detected contigs
+    - `checkv_quality_summary_bins/`: CheckV quality assessment results for bins
+        - `bins_from_assembled_contigs/`: Quality assessment for bins from all assembled contigs
+            - `semibin_assembled.checkv_quality_summary.tsv.tar.gz`: CheckV results for SemiBin bins (assembled contigs)
+            - `vamb_assembled.checkv_quality_summary.tsv.tar.gz`: CheckV results for VAMB bins (assembled contigs)
+            - `taxvamb_assembled.checkv_quality_summary.tsv.tar.gz`: CheckV results for TaxVAMB bins (assembled contigs)
+        - `bins_from_genomad_viral_contigs/`: Quality assessment for bins from geNomad detected viral contigs
+            - `semibin_from_genomad_viral.checkv_quality_summary.tsv.tar.gz`: CheckV results for SemiBin bins (geNomad viral contigs)
+            - `vamb_from_genomad_viral.checkv_quality_summary.tsv.tar.gz`: CheckV results for VAMB bins (geNomad viral contigs)
+            - `taxvamb_from_genomad_viral.checkv_quality_summary.tsv.tar.gz`: CheckV results for TaxVAMB bins (geNomad viral contigs)
 - `genomad_annotation/`: Viral genome detection and annotation results
     - `genomad.default.summary.virus.tsv.tar.gz`: Results from geNomad annotation (default mode, summary file)
     - `genomad.relaxed.summary.virus.tsv.tar.gz`: Results from geNomad annotation (relaxed mode, summary file)
