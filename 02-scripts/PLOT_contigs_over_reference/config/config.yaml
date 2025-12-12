@@ -1,4 +1,4 @@
 # path to the result folder
-output_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa/"
+output_folder: "05-results/taxonomic_annotation/empirical_data_bwa/"
 
-viruses_contigs: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses/viruses.fasta"
+viruses_contigs: "05-results/taxonomic_annotation/empirical_data/top_viruses/viruses.fasta"
