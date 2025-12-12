@@ -1,23 +1,23 @@
 # Path to the metagenomes files
 metagenomes:
     # path to contigs reads folder
-    reads_folder: "/mnt/archgen/microbiome_coprolite/paleofeces_assembly/03-data/fastqs"
+    reads_folder: "paleofeces_assembly/03-data/fastqs"
     # identifier of the sample name in the reads files (e.g. _R if the file is named sample1_R1.fastq.gz)
     reads_identifier: "-"
     # path to contigs folder if you already done the assembly
-    assemble_contigs: "/mnt/archgen/microbiome_coprolite/palaeofaeces_ecoevol/04-analysis/metagenome_assembly/alignment"
+    assemble_contigs: "palaeofaeces_ecoevol/04-analysis/metagenome_assembly/alignment"
     # Exention of the contig file (e.g. fasta)
     contigs_ext: ".fasta.gz"
 
 # path to the result folder
-output_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa"
+output_folder: "05-results/taxonomic_annotation/empirical_data_bwa"
 
 # reference genome path
-reference_genome: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses/viruses_decoy.fasta"
+reference_genome: "05-results/taxonomic_annotation/empirical_data/top_viruses/viruses_decoy.fasta"
 
-metadata: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/refdbs/ICTV/ICTV_database/20240209/ICTV_metadata.tsv"
+metadata: "03-data/refdbs/ICTV/ICTV_database/20240209/ICTV_metadata.tsv"
 
 # sam2lca
-sam2lca_db: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses/sam2lca"
+sam2lca_db: "05-results/taxonomic_annotation/empirical_data/top_viruses/sam2lca"
 seqid2taxid: "viruses_plus_decoy_genome"
 taxonomy: "viruses_plus_decoy_genome"
