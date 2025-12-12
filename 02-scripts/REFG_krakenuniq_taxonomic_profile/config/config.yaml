@@ -1,14 +1,14 @@
 # Path to the metagenomes files
 metagenomes:
     # path to contigs reads folder
-    reads_folder: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/simulated_viral_metagenomes/ICTV"
+    reads_folder: "03-data/simulated_viral_metagenomes/ICTV"
     # identifier of the sample name in the reads files (e.g. _R if the file is named sample1_R1.fastq.gz)
     reads_identifier: "_"
 
 
 # path to the result folder
-output_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/simulated_reads/ICTV/"
+output_folder: "05-results/taxonomic_annotation/simulated_reads/ICTV/"
 
 # reference genome path
-kraken_db: "/mnt/ramdisk/krakenuniq_db_ICTV"
+kraken_db: "ramdisk/krakenuniq_db_ICTV"
 
