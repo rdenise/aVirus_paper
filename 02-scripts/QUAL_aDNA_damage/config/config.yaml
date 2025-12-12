@@ -1,23 +1,23 @@
 # Path to the metagenomes files
-bam_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa/sam2lca"
+bam_folder: "05-results/taxonomic_annotation/empirical_data_bwa/sam2lca"
 
 
 # Path to the metagenomes files
 metagenomes:
     # path to contigs reads folder
-    reads_folder: /mnt/archgen/microbiome_coprolite/palaeofaeces_ecoevol/03-data/unaligned
+    reads_folder: palaeofaeces_ecoevol/03-data/unaligned
     # identifier of the sample name in the reads files (e.g. _R if the file is named sample1_R1.fastq.gz)
     # reads_identifier: "-"
     reads_identifier: "_"
 
 
 # path to the result folder
-output_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa/"
+output_folder: "05-results/taxonomic_annotation/empirical_data_bwa/"
 
 # reference genome path
-reference_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa/top_viruses/viruses"
+reference_folder: "05-results/taxonomic_annotation/empirical_data_bwa/top_viruses/viruses"
 
 # This is a reference folder for the bowtie search 
-ref_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses"
-refs_virus: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses/viruses_decoy.fasta"
+ref_folder: "05-results/taxonomic_annotation/empirical_data/top_viruses"
+refs_virus: "05-results/taxonomic_annotation/empirical_data/top_viruses/viruses_decoy.fasta"
 
