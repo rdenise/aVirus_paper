@@ -1,4 +1,3 @@
-```markdown
 # Analysis Scripts
 
 This directory contains all the analysis workflows implemented as Snakemake pipelines. Each subdirectory represents a distinct analysis step in the viral metagenomic pipeline.
@@ -58,4 +57,3 @@ Each workflow directory follows a standardized Snakemake layout and typically co
 
 When adding or running workflows, edit the corresponding `config/config.yaml` to point to your input data and reference databases.
 
-```
