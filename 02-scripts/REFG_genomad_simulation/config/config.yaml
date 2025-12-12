@@ -1,18 +1,18 @@
 # Path to the metagenomes files
 metagenomes:
-    assemble_contigs: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/simulated_viral_contigs"
+    assemble_contigs: "03-data/simulated_viral_contigs"
     # Exention of the contig file (e.g. fasta)
     contigs_ext: ".fna.gz"
     # contigs_ext: "-megahit.fasta.gz"
 
 # path to the result folder
-output_folder: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data_bwa"
+output_folder: "05-results/taxonomic_annotation/empirical_data_bwa"
 
 # reference genome path
-reference_genome: "/mnt/archgen/microbiome_coprolite/aVirus/05-results/taxonomic_annotation/empirical_data/top_viruses/viruses_decoy.fasta"
+reference_genome: "05-results/taxonomic_annotation/empirical_data/top_viruses/viruses_decoy.fasta"
 
-metadata: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/refdbs/ICTV/ICTV_database/20240209/ICTV_metadata.tsv"
+metadata: "03-data/refdbs/ICTV/ICTV_database/20240209/ICTV_metadata.tsv"
 
-genomad_db: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/refdbs/genomad_db_1.9"
+genomad_db: "03-data/refdbs/genomad_db_1.9"
 
-checkv_db: "/mnt/archgen/microbiome_coprolite/aVirus/03-data/refdbs/checkv_db"
+checkv_db: "03-data/refdbs/checkv_db"
